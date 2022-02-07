@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :yelp_search, only: [:index]
+    resources :maps, only: [:index]
   end
 
   root "homes#index"

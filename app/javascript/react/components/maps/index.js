@@ -1,22 +1,27 @@
-import React from "react"
+import React, { useState, useEffect } from "react";
+import helperFetch from "../../../helper/Fetcher";
 
 const MapComponent = (props) => {
-    const API_KEY = "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg";
-    const URL = `https://www.google.com/maps/embed/v1/directions?key=${API_KEY}`
+	// const [apiKey, setApiKey] = useState("");
+	const [mapUrl, setMapUrl] = useState("");
 
-    const parameters = {
-        origin: "Boston, MA",
-        destination: "Worcester, MA",
-        mode: "walking"
-    }
+	useEffect(() => {
+		helperFetch("/api/maps").then((response) => {
+			const URL = `https://www.google.com/maps/embed/v1/directions?key=${response.key}`;
+			const parameters = {
+				origin: "Boston, MA",
+				destination: "Worcester, MA",
+				mode: "driving",
+			};
+			let source = URL;
+			Object.keys(parameters).forEach(
+				(key) => (source += `&${key}=${parameters[key]}`)
+			);
+			setMapUrl(source);
+		});
+	}, []);
 
-    let source = URL
-    Object.keys(parameters).forEach(key => source += `&${key}=${parameters[key]}`)
+	return <iframe src={mapUrl}></iframe>;
+};
 
-    return (
-        <iframe src={source} />
-        // <h1>{source}</h1>
-    )
-}
-
-export default MapComponent
+export default MapComponent;
