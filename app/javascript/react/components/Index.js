@@ -1,18 +1,28 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import helperFetch from "Fetcher.js"
+import MapComponent from "./maps";
+
 
 const IndexPage = (props) => {
 	const [yelp, setYelp] = useState([]);
-}
+	const [location, setLocation] = useState("worcester");
+
 	const fetchYelp = async () => {
-		const response = await fetch("/api/v1/games");
+		const response = await fetch(`/api/yelp_search?location=${location}`);
 		const parsedYelp = await response.json();
+		setYelp(parsedYelp);
 	};
+
 	useEffect(() => {
 		fetchYelp();
-	}, [])
-  return (
-		console.log(parsedYelp);
-  )
-  export default IndexPage
+	}, []);
+
+	console.log(yelp)
+	return (
+		<>
+			<h1>yelp</h1>
+			<MapComponent />
+		</>
+	) 
+};
+export default IndexPage;

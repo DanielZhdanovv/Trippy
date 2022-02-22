@@ -5,7 +5,7 @@ class YelpSearch
 
     def self.search(params)
         # return params
-        url = "#{BASE_URL}#{params["search_type"]}/search"
+        url = "#{BASE_URL}businesses/search"
         parameters = {
             location: params["location"],
             offset: 0
