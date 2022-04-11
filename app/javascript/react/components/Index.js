@@ -1,8 +1,17 @@
-import React from "react";
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Button from "@mui/material/Button";
+import CameraIcon from "@mui/icons-material/PhotoCamera";
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import MapComponent from "./maps";
 import SearchBar from "./SearchBar";
-import Button from "@mui/material/Button";
+import AddLocationAltOutlinedIcon from "@mui/icons-material/AddLocationAltOutlined";
 
 const IndexPage = (props) => {
 	const [yelp, setYelp] = useState({});
@@ -41,20 +50,90 @@ const IndexPage = (props) => {
 		e.preventDefault();
 		setLocation("");
 	};
+
+	const theme = createTheme();
 	// console.log(yelp);
 	return (
-		<>
-			<h3>Yelp Search</h3>
-			<SearchBar
-				value={location}
-				handleChange={handleChange}
-				placeholder='Location'
-			/>
-			<Button variant='contained' onClick={handleClear}>
-				Clear
-			</Button>
-			{yelp.businesses ? <MapComponent locations={yelp.businesses} /> : null}
-		</>
+		<ThemeProvider theme={theme}>
+			<CssBaseline />
+			<AppBar position='relative'>
+				<Toolbar>
+					<AddLocationAltOutlinedIcon sx={{ mr: 2 }} />
+					<Typography variant='h6' color='inherit' noWrap>
+						Trippy
+					</Typography>
+				</Toolbar>
+			</AppBar>
+			<main>
+				{/* Hero unit */}
+				<Box
+					sx={{
+						bgcolor: "background.paper",
+						pt: 8,
+						pb: 6,
+					}}
+				>
+					<Container maxWidth='sm'>
+						<Typography
+							component='h1'
+							variant='h2'
+							align='center'
+							color='text.primary'
+							gutterBottom
+						>
+							Trippy Search
+						</Typography>
+						<Typography
+							variant='h5'
+							align='center'
+							color='text.secondary'
+							paragraph
+						>
+							Trippy allows you to discover new restaurants in the area of your
+							choice, type in a location of interest and get two random
+							locations that you must visit with your friends.
+						</Typography>
+						<SearchBar
+							value={location}
+							handleChange={handleChange}
+							placeholder='Location'
+						/>
+						<Button
+							className='clearButton'
+							variant='contained'
+							onClick={handleClear}
+						>
+							Clear
+						</Button>
+						<div className='first'>
+							<div className='left'>
+								<img
+									className='image'
+									src='https://static01.nyt.com/images/2022/04/06/dining/06rest-mena1/05rest-mena1-threeByTwoMediumAt2X.jpg'
+								></img>
+								<h1>Amazing place com</h1>
+								<h2>617 697 8423</h2>
+								<h2>31 elizabeth st, Worcester, MA</h2>
+								<h2>5 Stars</h2>
+							</div>
+							<div className='right'>
+								<img
+									className='image'
+									src='https://static01.nyt.com/images/2022/04/06/dining/06rest-mena1/05rest-mena1-threeByTwoMediumAt2X.jpg'
+								></img>
+								<h1>Amazing place com</h1>
+								<h2>617 697 8423</h2>
+								<h2>31 elizabeth st, Worcester, MA</h2>
+								<h2>5 Stars</h2>
+							</div>
+						</div>
+					</Container>
+				</Box>
+			</main>
+			{/* Footer */}
+			<Box sx={{ bgcolor: "background.paper", p: 6 }} component='footer'></Box>
+			{/* End footer */}
+		</ThemeProvider>
 	);
 };
 export default IndexPage;

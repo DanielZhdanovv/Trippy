@@ -37,26 +37,47 @@ const MapComponent = ({ locations }) => {
 	}, []);
 
 	return (
+		// <div>
+		// 	<iframe src={mapUrl}></iframe>
+		// 	<div className='left'>
+		// 		<h1>{firstPoint.name}</h1>
+		// 		<h2>{firstPoint.display_phone}</h2>
+		// 		<h2>
+		// 			{firstLocation.address1}, {firstLocation.city}, {firstLocation.state}
+		// 		</h2>
+		// 		<h2>{firstPoint.rating} Stars</h2>
+		// 		<img className='image' src={firstPoint.image_url}></img>
+		// 	</div>
+		// 	<div className='right'>
+		// 		<h1>{secondPoint.name}</h1>
+		// 		<h2>{secondPoint.display_phone}</h2>
+		// 		<h2>
+		// 			{secondLocation.address1}, {secondLocation.city},{" "}
+		// 			{secondLocation.state}
+		// 		</h2>
+		// 		<h2>{secondPoint.rating} Stars</h2>
+		// 		<img className='image' src={secondPoint.image_url}></img>
+		// 	</div>
 		<div>
-			<iframe src={mapUrl}></iframe>
 			<div className='left'>
-				<h1>{firstPoint.name}</h1>
-				<h2>{firstPoint.display_phone}</h2>
-				<h2>
-					{firstLocation.address1}, {firstLocation.city}, {firstLocation.state}
-				</h2>
-				<h2>{firstPoint.rating} Stars</h2>
-				<img className='image' src={firstPoint.image_url}></img>
+				<h1>Amazing place com</h1>
+				<h2>617 697 8423</h2>
+				<h2>31 elizabeth st, Worcester, MA</h2>
+				<h2>5 Stars</h2>
+				<img
+					className='image'
+					src='https://static01.nyt.com/images/2022/04/06/dining/06rest-mena1/05rest-mena1-threeByTwoMediumAt2X.jpg'
+				></img>
 			</div>
 			<div className='right'>
-				<h1>{secondPoint.name}</h1>
-				<h2>{secondPoint.display_phone}</h2>
-				<h2>
-					{secondLocation.address1}, {secondLocation.city},{" "}
-					{secondLocation.state}
-				</h2>
-				<h2>{secondPoint.rating} Stars</h2>
-				<img className='image' src={secondPoint.image_url}></img>
+				<h1>Amazing place com</h1>
+				<h2>617 697 8423</h2>
+				<h2>31 elizabeth st, Worcester, MA</h2>
+				<h2>5 Stars</h2>
+				<img
+					className='image'
+					src='https://static01.nyt.com/images/2022/04/06/dining/06rest-mena1/05rest-mena1-threeByTwoMediumAt2X.jpg'
+				></img>
 			</div>
 		</div>
 	);
