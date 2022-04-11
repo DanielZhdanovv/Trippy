@@ -91,7 +91,7 @@ const IndexPage = (props) => {
 						>
 							Trippy allows you to discover new restaurants in the area of your
 							choice, type in a location of interest and get two random
-							locations that you must visit with your friends.
+							restaurants that you must visit with your friends.
 						</Typography>
 						<SearchBar
 							value={location}

@@ -54,7 +54,7 @@ const MapComponent = ({ locations }) => {
 							<h5>Rating: {firstPoint.rating}</h5>
 							<h5>
 								<a href={firstPoint.url} target='_blank'>
-									<strong>Company Website</strong>
+									<strong>View on Yelp</strong>
 								</a>
 							</h5>
 						</div>
@@ -71,7 +71,7 @@ const MapComponent = ({ locations }) => {
 							<h5>Rating: {secondPoint.rating}</h5>
 							<h5>
 								<a href={secondPoint.url} target='_blank'>
-									<strong>Company Website</strong>
+									<strong>View on Yelp</strong>
 								</a>
 							</h5>
 						</div>
