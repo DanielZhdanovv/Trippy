@@ -52,7 +52,7 @@ const IndexPage = (props) => {
 	};
 
 	const theme = createTheme();
-	// console.log(yelp);
+	console.log(yelp);
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
@@ -105,11 +105,9 @@ const IndexPage = (props) => {
 						>
 							Clear
 						</Button>
-						{yelp.businesses ? (
-							<MapComponent locations={yelp.businesses} />
-						) : null}
 					</Container>
 				</Box>
+				{yelp.businesses ? <MapComponent locations={yelp.businesses} /> : null}
 			</main>
 			{/* Footer */}
 			<Box sx={{ bgcolor: "background.paper", p: 6 }} component='footer'>

@@ -1,5 +1,6 @@
 .first {
 	margin: 0 auto;
+	display: flex;
 }
 .left {
 	width: 270px;
@@ -8,6 +9,7 @@
 	float: left;
 	color: black;
 	border-radius: 50px;
+	margin-left: 5rem;
 }
 
 .right {
@@ -17,6 +19,7 @@
 	float: right;
 	color: rgb(0, 0, 0);
 	border-radius: 50px;
+	margin-left: 1rem;
 }
 
 .text {
@@ -26,4 +29,28 @@
 .image {
 	width: 270px;
 	height: 180px;
+}
+
+.maps {
+	width: calc(100vw - 750px);
+}
+
+.map-canvas {
+	border: none;
+	margin: 0 auto;
+	left: 750px;
+	width: 30rem !important;
+	height: 30rem !important;
+	display: flex;
+	float: left;
+	margin-left: 10rem;
+}
+
+.searchResults {
+	align-items: center;
+	margin-left: 10rem;
+}
+
+a {
+	color: rgb(225, 0, 0);
 }
