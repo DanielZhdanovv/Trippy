@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import MapComponent from "./maps";
 import SearchBar from "./SearchBar";
+import Button from "@mui/material/Button";
 
 const IndexPage = (props) => {
 	const [yelp, setYelp] = useState({});
@@ -36,11 +37,11 @@ const IndexPage = (props) => {
 		}
 	}, [location]);
 
-	// useEffect(() => {
-	// 	fetchYelp();
-	// }, []);
-
-	console.log(yelp);
+	const handleClear = (e) => {
+		e.preventDefault();
+		setLocation("");
+	};
+	// console.log(yelp);
 	return (
 		<>
 			<h3>Yelp Search</h3>
@@ -49,6 +50,9 @@ const IndexPage = (props) => {
 				handleChange={handleChange}
 				placeholder='Location'
 			/>
+			<Button variant='contained' onClick={handleClear}>
+				Clear
+			</Button>
 			{yelp.businesses ? <MapComponent locations={yelp.businesses} /> : null}
 		</>
 	);
