@@ -3,27 +3,63 @@ import helperFetch from "../../../helper/Fetcher";
 
 const MapComponent = ({ locations }) => {
 	// const [apiKey, setApiKey] = useState("");
-	const [destination, setDestinaition] = useState("");
+	const [firstPoint, setFirstPoint] = useState([]);
+	const [secondPoint, setSecondPoint] = useState({});
+	const [firstLocation, setFirstLocation] = useState([]);
+	const [secondLocation, setSecondLocation] = useState({});
 	const [mapUrl, setMapUrl] = useState("");
+
+	const randomInteger = (min, max) => {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	};
+
+	let firstNumber = randomInteger(0, 9);
+	let secondNumber = randomInteger(10, 19);
 
 	useEffect(() => {
 		helperFetch("/api/maps").then((response) => {
 			const URL = `https://www.google.com/maps/embed/v1/directions?key=${response.key}`;
 			const parameters = {
-				origin: `${locations[0].coordinates.latitude} ${locations[0].coordinates.longitude}`,
-				waypoints: `${locations[4].coordinates.latitude} ${locations[4].coordinates.longitude}`,
-				destination: `${locations[2].coordinates.latitude} ${locations[2].coordinates.longitude}`,
-				mode: "walking",
+				origin: `${locations[firstNumber].coordinates.latitude} ${locations[firstNumber].coordinates.longitude}`,
+				destination: `${locations[secondNumber].coordinates.latitude} ${locations[secondNumber].coordinates.longitude}`,
+				mode: "driving",
 			};
 			let source = URL;
 			Object.keys(parameters).forEach(
 				(key) => (source += `&${key}=${parameters[key]}`)
 			);
 			setMapUrl(source);
+			setFirstPoint(locations[firstNumber]);
+			setSecondPoint(locations[secondNumber]);
+			setFirstLocation(locations[firstNumber].location);
+			setSecondLocation(locations[secondNumber].location);
 		});
 	}, []);
 
-	return <iframe src={mapUrl}></iframe>;
+	return (
+		<div>
+			<iframe src={mapUrl}></iframe>
+			<div className='left'>
+				<h1>{firstPoint.name}</h1>
+				<h2>{firstPoint.display_phone}</h2>
+				<h2>
+					{firstLocation.address1}, {firstLocation.city}, {firstLocation.state}
+				</h2>
+				<h2>{firstPoint.rating} Stars</h2>
+				<img className='image' src={firstPoint.image_url}></img>
+			</div>
+			<div className='right'>
+				<h1>{secondPoint.name}</h1>
+				<h2>{secondPoint.display_phone}</h2>
+				<h2>
+					{secondLocation.address1}, {secondLocation.city},{" "}
+					{secondLocation.state}
+				</h2>
+				<h2>{secondPoint.rating} Stars</h2>
+				<img className='image' src={secondPoint.image_url}></img>
+			</div>
+		</div>
+	);
 };
 
 export default MapComponent;
