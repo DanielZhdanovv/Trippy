@@ -111,20 +111,24 @@ const IndexPage = (props) => {
 									className='image'
 									src='https://static01.nyt.com/images/2022/04/06/dining/06rest-mena1/05rest-mena1-threeByTwoMediumAt2X.jpg'
 								></img>
-								<h1>Amazing place com</h1>
-								<h2>617 697 8423</h2>
-								<h2>31 elizabeth st, Worcester, MA</h2>
-								<h2>5 Stars</h2>
+								<div className='text'>
+									<h3>Amazing place com</h3>
+									<h4>617 697 8423</h4>
+									<h4>31 elizabeth st, Worcester, MA</h4>
+									<h4>5 Stars</h4>
+								</div>
 							</div>
 							<div className='right'>
 								<img
 									className='image'
 									src='https://static01.nyt.com/images/2022/04/06/dining/06rest-mena1/05rest-mena1-threeByTwoMediumAt2X.jpg'
 								></img>
-								<h1>Amazing place com</h1>
-								<h2>617 697 8423</h2>
-								<h2>31 elizabeth st, Worcester, MA</h2>
-								<h2>5 Stars</h2>
+								<div className='text'>
+									<h3>Amazing place com</h3>
+									<h4>617 697 8423</h4>
+									<h4>31 elizabeth st, Worcester, MA</h4>
+									<h4>5 Stars</h4>
+								</div>
 							</div>
 						</div>
 					</Container>
