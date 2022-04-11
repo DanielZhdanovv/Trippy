@@ -105,37 +105,23 @@ const IndexPage = (props) => {
 						>
 							Clear
 						</Button>
-						<div className='first'>
-							<div className='left'>
-								<img
-									className='image'
-									src='https://static01.nyt.com/images/2022/04/06/dining/06rest-mena1/05rest-mena1-threeByTwoMediumAt2X.jpg'
-								></img>
-								<div className='text'>
-									<h3>Amazing place com</h3>
-									<h4>617 697 8423</h4>
-									<h4>31 elizabeth st, Worcester, MA</h4>
-									<h4>5 Stars</h4>
-								</div>
-							</div>
-							<div className='right'>
-								<img
-									className='image'
-									src='https://static01.nyt.com/images/2022/04/06/dining/06rest-mena1/05rest-mena1-threeByTwoMediumAt2X.jpg'
-								></img>
-								<div className='text'>
-									<h3>Amazing place com</h3>
-									<h4>617 697 8423</h4>
-									<h4>31 elizabeth st, Worcester, MA</h4>
-									<h4>5 Stars</h4>
-								</div>
-							</div>
-						</div>
+						{yelp.businesses ? (
+							<MapComponent locations={yelp.businesses} />
+						) : null}
 					</Container>
 				</Box>
 			</main>
 			{/* Footer */}
-			<Box sx={{ bgcolor: "background.paper", p: 6 }} component='footer'></Box>
+			<Box sx={{ bgcolor: "background.paper", p: 6 }} component='footer'>
+				<Typography
+					variant='subtitle1'
+					align='center'
+					color='text.secondary'
+					component='p'
+				>
+					Follow me on Github for more
+				</Typography>
+			</Box>
 			{/* End footer */}
 		</ThemeProvider>
 	);

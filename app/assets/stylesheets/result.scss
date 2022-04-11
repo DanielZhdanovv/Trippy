@@ -4,19 +4,26 @@
 .left {
 	width: 270px;
 	height: 500px;
-	background-color: #1976d2;
+	background-color: #49a4ff;
 	float: left;
-	color: white;
+	color: black;
+	border-radius: 50px;
 }
 
 .right {
 	width: 270px;
 	height: 500px;
-	background-color: #1976d2;
+	background-color: #49a4ff;
 	float: right;
-	color: white;
+	color: rgb(0, 0, 0);
+	border-radius: 50px;
 }
 
 .text {
 	padding-left: 1.5rem;
+}
+
+.image {
+	width: 270px;
+	height: 180px;
 }

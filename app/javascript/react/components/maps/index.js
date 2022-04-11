@@ -37,47 +37,38 @@ const MapComponent = ({ locations }) => {
 	}, []);
 
 	return (
-		// <div>
-		// 	<iframe src={mapUrl}></iframe>
-		// 	<div className='left'>
-		// 		<h1>{firstPoint.name}</h1>
-		// 		<h2>{firstPoint.display_phone}</h2>
-		// 		<h2>
-		// 			{firstLocation.address1}, {firstLocation.city}, {firstLocation.state}
-		// 		</h2>
-		// 		<h2>{firstPoint.rating} Stars</h2>
-		// 		<img className='image' src={firstPoint.image_url}></img>
-		// 	</div>
-		// 	<div className='right'>
-		// 		<h1>{secondPoint.name}</h1>
-		// 		<h2>{secondPoint.display_phone}</h2>
-		// 		<h2>
-		// 			{secondLocation.address1}, {secondLocation.city},{" "}
-		// 			{secondLocation.state}
-		// 		</h2>
-		// 		<h2>{secondPoint.rating} Stars</h2>
-		// 		<img className='image' src={secondPoint.image_url}></img>
-		// 	</div>
 		<div>
-			<div className='left'>
-				<h1>Amazing place com</h1>
-				<h2>617 697 8423</h2>
-				<h2>31 elizabeth st, Worcester, MA</h2>
-				<h2>5 Stars</h2>
-				<img
-					className='image'
-					src='https://static01.nyt.com/images/2022/04/06/dining/06rest-mena1/05rest-mena1-threeByTwoMediumAt2X.jpg'
-				></img>
-			</div>
-			<div className='right'>
-				<h1>Amazing place com</h1>
-				<h2>617 697 8423</h2>
-				<h2>31 elizabeth st, Worcester, MA</h2>
-				<h2>5 Stars</h2>
-				<img
-					className='image'
-					src='https://static01.nyt.com/images/2022/04/06/dining/06rest-mena1/05rest-mena1-threeByTwoMediumAt2X.jpg'
-				></img>
+			<iframe src={mapUrl}></iframe>
+			<div>
+				<div className='first'>
+					<div className='left'>
+						<img className='image' src={firstPoint.image_url}></img>
+						<div className='text'>
+							<h3>{firstPoint.name}</h3>
+							<h5>Phone: {firstPoint.display_phone}</h5>
+							<h5>
+								{" "}
+								Address:
+								{firstLocation.address1}, {firstLocation.city},{" "}
+								{firstLocation.state}
+							</h5>
+							<h5>Rating: {firstPoint.rating}</h5>
+						</div>
+					</div>
+					<div className='right'>
+						<img className='image' src={secondPoint.image_url}></img>
+						<div className='text'>
+							<h3>{secondPoint.name}</h3>
+							<h5>Phone: {secondPoint.display_phone}</h5>
+							<h5>
+								Address:
+								{secondLocation.address1}, {secondLocation.city},{" "}
+								{secondLocation.state}
+							</h5>
+							<h5>Rating: {secondPoint.rating}</h5>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
